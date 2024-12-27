@@ -1,0 +1,18 @@
+{
+    "name": "com.rf.toolbox",
+    "version": "1.0.0",
+    "displayName": "RF Toolbox",
+    "description": "A personal utility library for Unity development.",
+    "unity": "2020.3",
+    "author": {
+        "name": "RF",
+        "url": "https://example.com"
+    },
+    "keywords": [
+        "toolbox",
+        "unity",
+        "utilities",
+        "rf_toolbox"
+    ],
+    "dependencies": {}
+}

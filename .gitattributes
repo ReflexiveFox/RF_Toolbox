@@ -1,0 +1,8 @@
+# Normalize text files
+* text=auto
+
+# Force LF line endings for specific file types
+*.cs text eol=lf
+*.meta text eol=lf
+*.json text eol=lf
+*.md text eol=lf
