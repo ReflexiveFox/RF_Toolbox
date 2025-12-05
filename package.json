@@ -14,5 +14,8 @@
         "utilities",
         "rf_toolbox"
     ],
-    "dependencies": {}
+    "dependencies": {},
+    "documentationUrl": "Documentation~/index.md",
+    "changelogUrl": "CHANGELOG.md",
+    "licensesUrl": "LICENSE"
 }
