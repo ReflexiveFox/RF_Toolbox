@@ -4,92 +4,72 @@
 
 ---
 
-## **Folder Structure**
+## Installation (Unity Package Manager)
 
-The RF_Toolbox is organized into the following directories:
+You can add RF_Toolbox directly through Unity's Package Manager instead of copying files into `Assets`.
 
-### **/Extensions/**
-- Contains extension methods for Unity's built-in types (e.g., `Vector3`, `Transform`, `GameObject`).
-- Examples:
-  - `Vector3.ClampMagnitude()`
-  - `Transform.ResetTransform()`
-
-### **/Helpers/**
-- Includes general-purpose utility classes and functions to simplify development.
-- Examples:
-  - `MathUtilities` for grid snapping and other math operations.
-  - `DebugLogger` for centralized logging with additional context.
-
-### **/Attributes/**
-- Custom attributes for enhancing the Unity Inspector experience.
-- Examples:
-  - `ReadOnlyAttribute` for making fields non-editable in the Inspector.
-  - `ButtonAttribute` for adding actionable buttons to the Inspector.
-
-### **/Events/**
-- Provides reusable classes and patterns for event management.
-- Examples:
-  - `EventManager` for managing custom game events.
-  - `RFEvent` for passing event data.
-
-### **/Managers/**
-- Houses scripts for managing game systems like input, game states, or UI.
-- Examples:
-  - `InputManager` for handling player inputs.
-  - `GameManager` for centralized game logic.
-
-### **/RF_ToolboxEditor/**
-- Contains custom editor tools, property drawers, and utility scripts for the Unity Editor.
-- Examples:
-  - Custom property drawers for attributes like `ReadOnlyAttribute`.
-  - Custom editor windows for batch operations.
+- **Add from Git URL**
+  1. Open **Window > Package Manager**.
+  2. Click the **+** button and choose **Add package from git URL...**.
+  3. Enter the repository URL, e.g.:
+     ```
+     https://github.com/ReflexiveFox/RF_Toolbox.git
+     ```
+- **Using a scoped registry (if you host the package)**
+  1. Add a scoped registry entry to your project's `Packages/manifest.json`:
+     ```json
+     {
+       "scopedRegistries": [
+         {
+           "name": "RF",
+           "url": "https://your.registry.url/", // replace with your registry
+           "scopes": ["com.rf"]
+         }
+       ],
+       "dependencies": {
+         "com.rf.toolbox": "1.0.0"
+       }
+     }
+     ```
+  2. Open **Package Manager** and install **RF Toolbox** from the **My Registries** list.
 
 ---
 
-## **Usage**
+## Folder Structure
 
-### **How to Use RF_Toolbox**
-1. Place the `RF_Toolbox` folder into your Unity project under the `Assets` directory.
-2. Use the scripts and utilities as needed in your project.
-3. Extend the toolbox with your own utilities or modifications.
+The current package layout is minimal and contained entirely within the **Runtime** assembly.
 
-### **Namespace**
-All scripts are under the `RF_Toolbox` namespace. Be sure to include it in your scripts:
+### `Runtime/Debugger`
+- `RFLogger` provides lightweight logging helpers for runtime debugging.
+
+---
+
+## Usage
+
+### Namespace
+Runtime scripts live under the `RF_Toolbox` namespaces. Include the one you need in your scripts:
 ```csharp
-using RF_Toolbox;
+using RF_Toolbox.Utilities;
 ```
 
-### **Examples**
-#### **Using Extensions**
+### Example
 ```csharp
-using RF_Toolbox.Extensions;
-
-void Example()
-{
-    Vector3 position = new Vector3(10f, 5f, 0f);
-    position = position.ClampMagnitude(5f);
-    Debug.Log(position);
-}
-```
-
-#### **Using DebugLogger**
-```csharp
-using RF_Toolbox.Helpers;
+using RF_Toolbox.Utilities;
 
 void LogExample()
 {
-    DebugLogger.Log("This is a test message.");
+    RFLogger.Log("This is a test message.");
 }
 ```
 
 ---
 
-## **Contributing**
+## Contributing
 Feel free to extend or modify RF_Toolbox to suit your project's needs. As this is a personal toolbox, it is designed to be flexible and adaptable.
 
 ---
 
-## **Future Improvements**
+## Future Improvements
 - Add more attributes for Inspector customization.
 - Expand the Helpers library with additional utilities.
 - Develop more advanced Editor tools.
