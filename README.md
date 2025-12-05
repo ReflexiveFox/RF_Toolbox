@@ -96,4 +96,4 @@ Feel free to extend or modify RF_Toolbox to suit your project's needs. As this i
 
 ---
 
-For any questions or suggestions, feel free to reach out or add new features directly to RF_Toolbox!
+For any questions or suggestions, feel free to reach out or add new features directly to ReflexiveFox!
